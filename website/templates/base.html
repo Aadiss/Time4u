@@ -5,9 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-    <title>time4u</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    
+    <div class="wrapper">
+        <div class="header">
+            header
+        </div>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <div class="footer">
+        footer
+    </div>
 </body>
 </html>

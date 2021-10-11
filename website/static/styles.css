@@ -1,0 +1,44 @@
+body {
+    background-color: #08AEEA;
+    background-image: linear-gradient(225deg, #08AEEA 0%, #2AF598 100%);
+}
+
+.header {
+    background-color: red;
+    grid-area: header;
+}
+
+.content {
+    background-color: white;
+    grid-area: content;
+}
+
+.sidebar {
+    background-color: yellow;
+    grid-area: sidebar;
+}
+
+.main-container {
+    background-color: blue;
+    grid-area: main-container;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "sidebar main-container";
+    height: 100%;
+    gap: 5px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+    grid-template-areas: 
+    "header"
+    "content";
+}
