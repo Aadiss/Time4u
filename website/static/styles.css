@@ -3,14 +3,120 @@ body {
     background-image: linear-gradient(225deg, #08AEEA 0%, #2AF598 100%);
 }
 
-.header {
-    background-color: red;
-    grid-area: header;
+/* header styling */
+
+.header-container {
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
+
+/* footer styling */
+.footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    display: flex; 
+    align-items: center;
+    height: 25px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+/* register styling */
+.register-container {
+    background-color: rgba(124, 57, 57, 0.0);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.in-form-wrapper .h1 {
+  grid-area: h1;
+  display: flex;
+  justify-content: center;
+}
+
+.in-form-wrapper .h1 h1 {
+  color: white;
+}
+
+.in-form-wrapper .username {
+  grid-area: username;
+}
+
+.in-form-wrapper .username input {
+  border-radius: 5px;
+  border: none;
+  height: 20px;
+}
+
+.in-form-wrapper .email {
+  grid-area: email;
+}
+
+.in-form-wrapper .email input {
+  border-radius: 5px;
+  border: none;
+  height: 20px;
+}
+
+.in-form-wrapper .password1 {
+  grid-area: password1;
+}
+
+.in-form-wrapper .password1 input {
+  border-radius: 5px;
+  border: none;
+  height: 20px;
+}
+
+.in-form-wrapper .password2 {
+  grid-area: password2;
+}
+
+.in-form-wrapper .password2 input {
+  border-radius: 5px;
+  border: none;
+  height: 20px;
+}
+
+.in-form-wrapper .form-button {
+  grid-area: form-button;
+  display: flex;
+  justify-content: center;
+}
+
+.in-form-wrapper .form-button button {
+  background-color: blanchedalmond;
+  border-radius: 5px;
+  font-size: 25px;
+  border: none;
+  margin-bottom: 5px;
+}
+
+.in-form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 5px;
+    grid-template-areas: 
+    "h1 h1"
+    "username email"
+    "password1 password2"
+    "form-button form-button";
+}
+
+/*-----*/
+
 .content {
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.5);
     grid-area: content;
+    border-radius: 5px;
 }
 
 .sidebar {
@@ -36,9 +142,12 @@ body {
 .wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 1fr;
     height: 100vh;
     grid-template-areas: 
-    "header"
     "content";
+    gap: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
