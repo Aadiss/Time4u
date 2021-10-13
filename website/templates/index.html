@@ -2,42 +2,31 @@
 {% block title %}Registration{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
-        <div class="content-wrapper">
-            <div class="sidebar">
-                sidebar
-            </div>
-            <div class="main-container">
-                content
-            </div>
-        </div>
+    <div class="user-wrapper">
+
+    </div>
     {% else %}
-        <div class="register-container">
-            <form method="POST"  class="register-form">
-                <div class="in-form-wrapper">
-                    <div class="h1">
-                        <h1>Registration</h1>
-                    </div>
-                    <div class="username">
-                        <h2>Username</h2>
-                        <input type="text" id="username" name="username">
-                    </div>
-                    <div class="email">
-                        <h2>Email</h2>
-                        <input type="text" id="email" name="email">
-                    </div>
-                    <div class="password1">
-                        <h2>Password</h2>
-                        <input type="password" name="password1" id="password1">
-                    </div>
-                    <div class="password2">
-                        <h2>Confirm Password</h2>
-                        <input type="password" name="password2" id="password2">
-                    </div>
-                    <div class="form-button">
-                        <button type="submit">Sign Up</button>
-                    </div>
+    <div class="register-wrapper">
+        <div class="container">
+            <form action="" method="POST" class="register-form">
+                <p class="login-label">Register</p>
+                <div class="input-group">
+                    <input type="email" placeholder="Email" name="email" id="email">
+                </div>
+                <div class="input-group">
+                    <input type="login" placeholder="Login" name="login" id="login">
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password1" id="password1" placeholder="password">
+                </div>
+                <div class="input-group">
+                    <input type="password"  name="password2" id="password2" placeholder="confirm password">
+                </div>
+                <div class="input-group">
+                    <button class="btn" type="submit">Register</button>
                 </div>
             </form>
         </div>
+    </div>
     {% endif %}
 {% endblock %}
