@@ -4,45 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" 
-        crossorigin="anonymous"
-    />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark header-container"> 
-        <div class="container-fluid ">
-            <button 
-                class="navbar-toggler" 
-                type="button" 
-                data-bs-toggle="collapse" 
-                data-bs-target="#navbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar">
-                <div class="navbar-nav navbar-items-a" >
-                    <a class="nav-item nav-link" href="/">Home</a>
-                    <a class="nav-item nav-link" href="/login">Login</a>               
-                </div>
-            </div>
+    <nav class="navbar">
+        <div class="brand-title">
+            Time4U
+        </div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+            </ul>
         </div>
     </nav>
     {% with messages = get_flashed_messages(with_categories=True) %}
         {% if messages %}
                 {% for category, message in messages %}
                     {% if category == "error" %}
-                        <div class="alert alert-danger alter-dismissible fade show" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <div class="alert alert-danger alter-dismissible fade show message-div" role="alert" style="margin-left: 5px; margin-right: 5px;">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                         </div>
                     {% else %}
-                        <div class="alert alert-success alter-dismissible fade show" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <div class="alert alert-success alter-dismissible fade show message-div" role="alert" style="margin-left: 5px; margin-right: 5px;">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -57,10 +54,7 @@
     <div class="footer">
         <h5 class="footer-h5">&copy; 2021 t4u by BAKS</h5>
     </div>
-    <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" 
-        crossorigin="anonymous">
-    </script>
+    <script type="text/javascript"
+    src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
