@@ -1,6 +1,6 @@
 body {
-    background: rgb(175,169,172);
-    background: radial-gradient(circle, rgba(175,169,172,1) 0%, rgba(231,231,231,1) 60%);
+    background-color: #b8c6db;
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -250,4 +250,14 @@ footer {
   .register-wrapper .container {
     width: 300px;
   }
+}
+
+.register-wrapper .container a {
+  text-decoration: none;
+  color: blueviolet;
+  font-size: 1.1rem;
+}
+
+.register-wrapper .container a:hover {
+  color: #333;
 }
