@@ -1,9 +1,42 @@
 {% extends "base.html" %}
-{% block title %}Registration{% endblock %}
+{% block title %}
+    {% if user.is_authenticated %}
+        Welcome, {{user.login}}!
+    {% else %}
+        Join Us!
+    {% endif %}
+{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
     <div class="user-wrapper">
+        <div class="sidebar-container">
+            <header class="sidebar-header">
+                Time4U
+            </header>
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-qrcode"></i>
+                        All tasks
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-qrcode"></i>
+                        Expired soon
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-qrcode"></i>
+                        Highest priority
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content-container">
 
+        </div>
     </div>
     {% else %}
     <div class="register-wrapper">
