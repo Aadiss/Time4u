@@ -2,7 +2,9 @@ from flask import render_template, redirect, url_for, request, Blueprint
 from flask.helpers import flash
 from flask_login import current_user, logout_user, login_required, login_user
 from werkzeug.security import check_password_hash
+from sqlalchemy.sql import func
 from .models import User
+from . import db
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -29,6 +31,8 @@ def login():
                 flash("Invalid username or password!", category="error")
                 return redirect(url_for("auth.login"))
             else:
+                user.last_time_active = func.now()
+                db.session.commit()
                 flash("Login successful", category="success")
                 login_user(user, remember=True)
                 return redirect(url_for("views.home"))
@@ -41,4 +45,5 @@ def login():
 @login_required
 def logout():
     logout_user()
+    flash("Logout succesfull!", category="success")
     return redirect(url_for("views.home"))
