@@ -46,19 +46,19 @@
                         <h2>Add Task</h2>
                         <form action="" method="POST">
                             <div class="form-element">
-                                <input type="text" id="title" placeholder="Task title">
+                                <input type="text" id="title" name="title" placeholder="Task title">
                             </div>
                             <div class="form-element">
-                                <input type="text" id="priority" placeholder="Specify priority">
+                                <input type="text" id="priority" name="priority" placeholder="Specify priority">
                             </div>
                             <div class="form-element">
-                                <input type="text" id="subject" placeholder="Subject">
+                                <input type="text" id="subject" name="subject" placeholder="Subject">
                             </div>
                             <div class="form-element">
-                                <textarea name="" id="content" cols="30" rows="10" placeholder="Describe task"></textarea>
+                                <textarea id="content" name="content" cols="30" rows="10" placeholder="Describe task"></textarea>
                             </div>
                             <div class="form-element">
-                                <input type="text" id="date-expired" placeholder="Date expired">
+                                <input type="date" id="date-expired" name="date-expired" placeholder="Date expired">
                             </div>
                             <div class="form-element">
                                 <button type="submit" class="submit-btn">Add</button>
