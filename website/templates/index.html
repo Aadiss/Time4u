@@ -38,11 +38,11 @@
         <div class="content-container">
             <div class="header">
                 <div class="add-container">
-                    <button id="add-task-button">Add Task</button>
+                    <button onclick="showPopup()" id="add-task-button">Add Task</button>
                 </div>
-                <div class="popup">
-                    <div class="close-btn">&times;</div>
+                <div class="popup" id="popup">
                     <div class="form">
+                        <label for="" class="close-btn fas fa-times" id="popup-close-btn" onclick="hidePopup()"></label>
                         <h2>Add Task</h2>
                         <form action="" method="POST">
                             <div class="form-element">

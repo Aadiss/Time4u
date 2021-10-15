@@ -361,8 +361,13 @@ footer {
   border-radius: 5px;
   background: #333;
   color: white;
+  cursor: pointer;
 }
 
+.user-wrapper .content-container .header .add-container button:hover {
+  color: #04AA6D;
+  padding-top: 5px;
+}
 .user-wrapper .content-container .header .popup {
   position: absolute;
   top: 60%;
@@ -375,6 +380,7 @@ footer {
   box-shadow: 0 0 8px rgba(0, 0, 0, .4);
   border-radius: 5px;
   z-index: 2;
+  display: none;
 }
 
 .user-wrapper .content-container .header .popup h2 {
@@ -402,6 +408,14 @@ footer {
   width: 95%;
 }
 
+.user-wrapper .content-container .header .popup label {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
 .user-wrapper .content-container .header .form-element button {
   border-radius: 5px;
   font-size: 1.3rem;
@@ -409,6 +423,12 @@ footer {
   width: 95%;
   background: black;
   color: white;
+  cursor: pointer;
+}
+
+.user-wrapper .content-container .header .form-element button:hover {
+  color: #04AA6D;
+  padding-top: 5px;
 }
 
 .user-wrapper .content-container .header .search-container {
