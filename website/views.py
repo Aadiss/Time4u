@@ -3,7 +3,7 @@ from flask import render_template, redirect, url_for, request, Blueprint
 from flask.helpers import flash
 from flask_login import current_user, login_required, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from .models import User
+from .models import User, Task
 from . import db
 
 views_bp = Blueprint("views", __name__)
@@ -56,13 +56,13 @@ def home():
                     flash("Registration complete!", category="success")
                     return redirect(url_for("views.home"))
             
-            print("check popup form")
             if title and priority and subject and content and date_expired:
-                print(title, priority, subject, content, date_expired)
-                flash("Filled corectly!", category="success")
+                new_task = Task(title=title, priority=priority, subject=subject, content=content, date_expired=date_expired, owner=current_user.id)
+                db.session.add(new_task)
+                db.session.commit()
+                flash("Added successfuly", category="success")
                 return redirect(url_for("views.home"))
             else:
-                print(title, priority, subject, content, date_expired)
                 flash("Fill all fields!", category="error")
                 return redirect(url_for("views.home"))
         else:
