@@ -70,4 +70,8 @@ def home():
             return redirect(url_for("views.home"))
             
     else:
-        return render_template("index.html", user=current_user)
+        if current_user.is_authenticated:
+            tasks = Task.query.filter_by(owner=current_user.id).all()
+            return render_template("index.html", user=current_user, tasks=tasks)
+        else:
+            return render_template("index.html", user=current_user)
