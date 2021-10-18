@@ -71,8 +71,8 @@ def home():
                 db.session.commit()
                 flash("Added successfuly", category="success")
                 return redirect(url_for("views.home"))
-                """
-                if edited_content or status:
+                
+            if edited_content or status:
                 edited_task = Task.query.filter_by(id=edited_task_id).first()
                 if edited_content:
                     edited_task.content = edited_content
@@ -84,7 +84,7 @@ def home():
 
                 db.session.commit()
                 flash("Edited successfuly", category="success")
-                return redirect(url_for("views.home"))"""
+                return redirect(url_for("views.home"))
             else:
                 flash("Fill all fields!", category="error")
                 return redirect(url_for("views.home"))
@@ -94,7 +94,7 @@ def home():
             
     else:
         if current_user.is_authenticated:
-            tasks = Task.query.filter_by(owner=current_user.id).all()
+            tasks = Task.query.filter_by(owner=current_user.id).order_by(Task.date_expired).all()
             return render_template("index.html", user=current_user, tasks=tasks)
         else:
             return render_template("index.html", user=current_user)
