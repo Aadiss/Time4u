@@ -306,6 +306,7 @@ footer {
   opacity: .95;
   grid-area: sidebar;
   border-radius: 5px;
+  min-width: 200px;
 }
 
 .user-wrapper .sidebar-container .sidebar-header {
@@ -455,26 +456,72 @@ footer {
   opacity: 1;
   border-radius: 10%;
   margin: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: top;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr auto 1fr 1fr;
   align-items: center;
-  height: 300px;
+  height: auto;
   width: auto;
+  max-height: 400px;
+  min-width: 300px;
   border: 3px solid black;
 }
 
-.user-wrapper .content-container .tasks .single-task-container h3 {
-  margin: 0;
-  padding: 0;
-  font-size: 1.5rem;
-  color: rgba(0, 0, 0, 1);
-  font-weight: 700;
-}
 
 .user-wrapper .content-container .tasks .single-task-container .title {
-  display: flex;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid black;
+  padding: 5px;
+  color:aqua; 
 }
+
+.user-wrapper .content-container .tasks .single-task-container .priority {
+  font-size: 1.2rem;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  color: #cc0000;
+}
+
+.user-wrapper .content-container .tasks .single-task-container .subject {
+  font-size: 1.2rem;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+
+.user-wrapper .content-container .tasks .single-task-container .content {
+  font-size: 1.1rem;
+  border-bottom: 1px solid black;
+  padding: 5px; 
+}
+
+.user-wrapper .content-container .tasks .single-task-container .date-expired {
+  font-size: 1.1rem;
+  border-bottom: 2px solid black;
+  padding: 5px; 
+}
+
+.user-wrapper .content-container .tasks .single-task-container .edit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-wrapper .content-container .tasks .single-task-container .edit-btn button {
+  font-size: 1.3rem;
+  border-radius: 5%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+  cursor: pointer;
+  background:#6c5ce7;
+  color: black;
+}
+
+.user-wrapper .content-container .tasks .single-task-container .edit-btn button:hover {
+  margin-top: 10px;
+  color: white;
+  background: yellowgreen;
+}
+
 
 .user-wrapper .content-container .tasks {
   width: 100%;
@@ -483,9 +530,10 @@ footer {
   grid-area: tasks;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 5px;
+  overflow: auto; 
 }
 
 .user-wrapper .content-container {
@@ -502,11 +550,7 @@ footer {
 
 .user-wrapper {
   height: 100vh;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: 
-  "sidebar content";
+  display: flex;
   gap: 5px;
   margin-top: 5px;
   margin-bottom: 5px;

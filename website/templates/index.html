@@ -75,24 +75,22 @@
                 {% for task in tasks %}
                     <div class="single-task-container">
                         <div class="title">
-                            <h3>Title: </h3>
                             {{task.title}}
                         </div>
                         <div class="priority">
-                            <h3>Priority: </h3>
                             {{task.priority}}
                         </div>
                         <div class="subject">
-                            <h3>Subject: </h3>
                             {{task.subject}}
                         </div>
                         <div class="content">
-                            <h3>Description: </h3>
                             {{task.content}}
                         </div>
                         <div class="date-expired">
-                            <h3>Deadline: </h3>
                             {{task.date_expired}}
+                        </div>
+                        <div class="edit-btn">
+                            <button onclick="showPopup()" id="edit-task-button">Edit Task</button>
                         </div>
                     </div>
                 {% endfor %}
