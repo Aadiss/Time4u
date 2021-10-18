@@ -8,6 +8,8 @@ from . import db
 
 views_bp = Blueprint("views", __name__)
 
+AVAILABLE_STATUS = ['To Do', 'In Development', 'In Analysis', 'Done']
+
 @views_bp.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
@@ -24,7 +26,14 @@ def home():
         content = request.form.get("content")
         date_expired = request.form.get("date-expired")
 
-        if (username or email or password1 or password2) or (title or priority or subject or content or date_expired):
+        #edit form for rasks
+        edited_content = request.form.get("edit_content")
+        status = request.form.get("status")
+        edited_task_id = request.form.get("edit_id")
+
+        print(edited_content, status, edited_task_id)
+
+        if (username or email or password1 or password2) or (title or priority or subject or content or date_expired) or (edited_content or status or edited_task_id):
             if username and email and password1 and password2:
                 email_in_db = User.query.filter_by(email=email).first()
                 username_in_db = User.query.filter_by(login=username).first()
@@ -62,6 +71,20 @@ def home():
                 db.session.commit()
                 flash("Added successfuly", category="success")
                 return redirect(url_for("views.home"))
+                """
+                if edited_content or status:
+                edited_task = Task.query.filter_by(id=edited_task_id).first()
+                if edited_content:
+                    edited_task.content = edited_content
+                if status not in AVAILABLE_STATUS:
+                    flash("Invalid status!", category="error")
+                    return redirect(url_for("views.home"))
+                else:
+                    edited_task.status = status
+
+                db.session.commit()
+                flash("Edited successfuly", category="success")
+                return redirect(url_for("views.home"))"""
             else:
                 flash("Fill all fields!", category="error")
                 return redirect(url_for("views.home"))

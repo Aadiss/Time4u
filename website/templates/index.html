@@ -104,6 +104,9 @@
                             <div class="title">
                                 {{task.title}}
                             </div>
+                            <div class="task-id" style="display: none;">
+                                <input id="edit_id" name="edit_id" type="text" value="{{ task.id }}">
+                            </div>
                             <div class="priority">
                                 {{task.priority}}
                             </div>
@@ -114,7 +117,7 @@
                                 <textarea id="edit_content" name="edit_content" cols="30" rows="10" placeholder="{{ task.content }}"></textarea>
                             </div>
                             <div class="status">
-                                <input name="status" id="status" list="browser" placeholder="{{task.status}}">
+                                <input name="status" id="status" list="browser" value="{{task.status}}">
                                 <datalist id="browser">
                                     <option value="To Do">
                                     <option value="In Development">
