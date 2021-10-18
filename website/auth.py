@@ -33,7 +33,7 @@ def login():
             else:
                 user.last_time_active = func.now()
                 db.session.commit()
-                flash("Login successful", category="success")
+                flash("Logged in successfully!", category="success")
                 login_user(user, remember=True)
                 return redirect(url_for("views.home"))
          
@@ -46,4 +46,4 @@ def login():
 def logout():
     logout_user()
     flash("Logout succesfull!", category="success")
-    return redirect(url_for("views.home"))
+    return redirect(url_for("auth.login"))

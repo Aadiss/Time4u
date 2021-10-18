@@ -86,12 +86,49 @@
                         <div class="content">
                             {{task.content}}
                         </div>
+                        <div class="content">
+                            {{task.status}}
+                        </div>
                         <div class="date-expired">
                             {{task.date_expired}}
                         </div>
                         <div class="edit-btn">
-                            <button onclick="showPopup()" id="edit-task-button">Edit Task</button>
+                            <button onclick="showEditTask('{{ task.id}}')" id="edit-task-button">Edit Task</button>
                         </div>
+                    </div>
+
+                    <div class="edit-task-container" id="edit-task-container-{{task.id}}">
+                        <form action="" method="POST" class="edit-form">
+                            <label for="" class="close-btn fas fa-times" id="edit-close-btn" onclick="hideEditTask('{{ task.id}}')"></label>
+                            <h2>Edit task</h2>
+                            <div class="title">
+                                {{task.title}}
+                            </div>
+                            <div class="priority">
+                                {{task.priority}}
+                            </div>
+                            <div class="subject">
+                                {{task.subject}}
+                            </div>
+                            <div class="form-element">
+                                <textarea id="edit_content" name="edit_content" cols="30" rows="10" placeholder="{{ task.content }}"></textarea>
+                            </div>
+                            <div class="status">
+                                <input name="status" id="status" list="browser" placeholder="{{task.status}}">
+                                <datalist id="browser">
+                                    <option value="To Do">
+                                    <option value="In Development">
+                                    <option value="In Analysis">
+                                    <option value="Done">
+                                </datalist>
+                            </div>
+                            <div class="date-expired">
+                                {{task.date_expired}}
+                            </div>
+                            <div class="edit-submit-btn">
+                                <button id="sub-edit-button">Confirm Changes</button>
+                            </div>
+                        </form>
                     </div>
                 {% endfor %}
             </div>

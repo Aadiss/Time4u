@@ -15,3 +15,17 @@ function hidePopup() {
     let popup = document.getElementById("popup");
     popup.style.display = "none";
 }
+
+function showEditTask(task_id) {
+    var div_id = "edit-task-container-" + task_id;
+    console.log(div_id);
+    let popup = document.getElementById(div_id);
+    popup.style.display = "block";
+}
+
+function hideEditTask(task_id) {
+    var div_id = "edit-task-container-" + task_id;
+    console.log(div_id);
+    let popup = document.getElementById(div_id);
+    popup.style.display = "none";
+}
