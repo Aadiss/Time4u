@@ -1,13 +1,8 @@
 {% extends "base.html" %}
 {% block title %}
-    {% if user.is_authenticated %}
-        Welcome, {{user.login}}!
-    {% else %}
-        Join Us!
-    {% endif %}
+    Show Tasks
 {% endblock %}
 {% block content %}
-    {% if user.is_authenticated %}
     <div class="user-wrapper">
         <div class="sidebar-container">
             <header class="sidebar-header">
@@ -42,12 +37,6 @@
                     <a href="/condition/4">
                         <i class="fas fa-qrcode"></i>
                         In Development
-                    </a>
-                </li>
-                <li>
-                    <a href="/condition/5">
-                        <i class="fas fa-qrcode"></i>
-                        To Do
                     </a>
                 </li>
             </ul>
@@ -155,29 +144,4 @@
             </div>
         </div>
     </div>
-    {% else %}
-    <div class="register-wrapper">
-        <div class="container">
-            <form action="" method="POST" class="register-form">
-                <p class="login-label">Register</p>
-                <div class="input-group">
-                    <input type="email" placeholder="Email" name="email" id="email">
-                </div>
-                <div class="input-group">
-                    <input type="login" placeholder="Login" name="username" id="username">
-                </div>
-                <div class="input-group">
-                    <input type="password" name="password1" id="password1" placeholder="password">
-                </div>
-                <div class="input-group">
-                    <input type="password"  name="password2" id="password2" placeholder="confirm password">
-                </div>
-                <div class="input-group">
-                    <button class="btn" type="submit">Register</button>
-                </div>
-                <a href="/login">Already have account? Login here!</a>
-            </form>
-        </div>
-    </div>
-    {% endif %}
 {% endblock %}

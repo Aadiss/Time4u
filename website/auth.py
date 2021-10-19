@@ -1,9 +1,10 @@
 from flask import render_template, redirect, url_for, request, Blueprint
 from flask.helpers import flash
 from flask_login import current_user, logout_user, login_required, login_user
+from sqlalchemy.sql.functions import user
 from werkzeug.security import check_password_hash
 from sqlalchemy.sql import func
-from .models import User
+from .models import User, Task
 from . import db
 
 auth_bp = Blueprint("auth", __name__)
@@ -47,3 +48,21 @@ def logout():
     logout_user()
     flash("Logout succesfull!", category="success")
     return redirect(url_for("auth.login"))
+
+
+@auth_bp.route("/condition/<int:condition_id>")
+@login_required
+def condition(condition_id: int):
+    if condition_id == 1:
+        pass
+    elif condition_id == 2:
+        pass
+    elif condition_id == 3:
+        tasks = Task.query.filter_by(owner=current_user.id, status="Done").order_by(Task.date_expired).all()
+    elif condition_id == 4:
+        tasks = Task.query.filter_by(owner=current_user.id, status="In Development").order_by(Task.date_expired).all()
+    elif condition_id == 5:
+        tasks = Task.query.filter_by(owner=current_user.id, status="To Do").order_by(Task.date_expired).all()
+    else:
+        tasks = Task.query.filter_by(owner=current_user.id).order_by(Task.date_expired).all()
+    return render_template("condition.html", user=current_user, tasks=tasks)
