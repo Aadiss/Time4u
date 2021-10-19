@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
-DB_NAME = "postgres://kwuktzrtinhfbx:6c09522264607e327df7d4c949e37f572d58134d09fa54218ce1dbc237e5876b@ec2-52-210-120-210.eu-west-1.compute.amazonaws.com:5432/ddvj7vtdkmq90m"
+DB_NAME = "postgres://bcxnapvkrnuxdm:6aee2e94f13fc111b03bc400b66dc67613a58503164c85d21a19962f0220e08b@ec2-52-209-171-51.eu-west-1.compute.amazonaws.com:5432/d2h3br7ted57l9"
 db = SQLAlchemy()
 
 def create_app():
