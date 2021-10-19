@@ -5,6 +5,7 @@ from flask_login import current_user, login_required, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User, Task
 from . import db
+from datetime import date
 
 views_bp = Blueprint("views", __name__)
 
@@ -66,11 +67,15 @@ def home():
                     return redirect(url_for("views.home"))
             
             if title and priority and subject and content and date_expired:
-                new_task = Task(title=title, priority=priority, subject=subject, content=content, date_expired=date_expired, owner=current_user.id)
-                db.session.add(new_task)
-                db.session.commit()
-                flash("Added successfuly", category="success")
-                return redirect(url_for("views.home"))
+                if date_expired <= str(date.today()):
+                    flash("Date expired has to be at least 1 day after today!", category="error")
+                    return redirect(url_for("views.home"))
+                else:
+                    new_task = Task(title=title, priority=priority, subject=subject, content=content, date_expired=date_expired, owner=current_user.id)
+                    db.session.add(new_task)
+                    db.session.commit()
+                    flash("Added successfuly", category="success")
+                    return redirect(url_for("views.home"))
                 
             if edited_content or status:
                 edited_task = Task.query.filter_by(id=edited_task_id).first()
