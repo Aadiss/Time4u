@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+    Edit {{user.login}}
+{% endblock %}
+{% block content %}
+<div class="edit-user-wrapper">
+    <div class="edit-user-container">
+        <div class="header">
+            <h1>Welcome {{user.login}}!</h1>
+        </div>
+        <div class="email">
+            <h3>Email:</h3>
+            <input type="email" name="emial" id="email" value="{{user.email}}">
+        </div>
+        <div class="login">
+            <h3>Login:</h3>
+            <input type="login" name="login" id="login" value="{{user.login}}">
+        </div>
+        <div class="date-created">
+            <h3>Account created:</h3>
+            <h4>{{user.date_created}}</h4>
+        </div>
+        <div class="date-used">
+            <h3>Last login:</h3>
+            <h4>{{user.last_time_active}}</h4>
+        </div>
+        <div class="password">
+            <button>Change Password</button>
+        </div>
+        <div class="confirm">
+            <button type="submit">Confirm Changes</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

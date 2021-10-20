@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
-DB_NAME = "HEROKU_DB_URI"
+DB_NAME = "postgresql://postgres:qaz@localhost/time4u"
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "qazwsxedc"

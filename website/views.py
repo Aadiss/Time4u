@@ -32,7 +32,6 @@ def home():
         status = request.form.get("status")
         edited_task_id = request.form.get("edit_id")
 
-        print(edited_content, status, edited_task_id)
 
         if (username or email or password1 or password2) or (title or priority or subject or content or date_expired) or (edited_content or status or edited_task_id):
             if username and email and password1 and password2:
@@ -61,7 +60,6 @@ def home():
                     new_user = User(email=email, login=username, password = generate_password_hash(password1, method="sha256"))
                     db.session.add(new_user)
                     db.session.commit()
-                    print("user createt")
                     login_user(new_user, remember=True)
                     flash("Registration complete!", category="success")
                     return redirect(url_for("views.home"))

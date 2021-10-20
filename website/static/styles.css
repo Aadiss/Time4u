@@ -307,6 +307,12 @@ footer {
   grid-area: sidebar;
   border-radius: 5px;
   min-width: 200px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+  "sidebar-header"
+  "sidebar-content"
+  "sidebar-footer";
 }
 
 .user-wrapper .sidebar-container .sidebar-header {
@@ -606,4 +612,99 @@ footer {
   gap: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+/* edit account styling */
+.edit-user-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-user-wrapper .edit-user-container .header {
+  grid-area: edit-user-header;
+  
+}
+
+.edit-user-wrapper .edit-user-container .header h1 {
+  color: #04AA6D;
+}
+
+.edit-user-wrapper .edit-user-container h3 {
+  color: #04AA6D;
+}
+
+.edit-user-wrapper .edit-user-container .email {
+  grid-area: edit-email;
+}
+
+.edit-user-wrapper .edit-user-container .email input {
+  width: 90%;
+}
+
+.edit-user-wrapper .edit-user-container .login {
+  grid-area: edit-login;
+}
+
+.edit-user-wrapper .edit-user-container .login input {
+  width: 90%;
+}
+
+.edit-user-wrapper .edit-user-container .date-created {
+  grid-area: edit-created;
+}
+
+.edit-user-wrapper .edit-user-container .date-used {
+  grid-area: edit-active;
+}
+
+.edit-user-wrapper .edit-user-container .password {
+  grid-area: change-password;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f44336;
+}
+
+.edit-user-wrapper .edit-user-container .confirm {
+  grid-area: confirm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.edit-user-wrapper .edit-user-container  button {
+  font-size: 1.1rem;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #cc0000;
+  cursor: pointer;
+  color: whitesmoke;
+  padding: 5px;
+}
+
+.edit-user-wrapper .edit-user-container  button:hover {
+  color: #04AA6D;
+  margin-left: 15px;
+}
+
+
+.edit-user-wrapper .edit-user-container {
+  background: rgba(54, 53, 53, 0.7);
+  min-width: 600px;
+  padding: 15px;
+  position: absolute;
+  top: 30%;
+  border-radius: 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  "edit-user-header edit-user-header"
+  "edit-email edit-login"
+  "edit-created edit-active"
+  "change-password change-password"
+  "confirm confirm";
 }

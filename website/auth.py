@@ -2,6 +2,7 @@ from time import time
 from flask import render_template, redirect, url_for, request, Blueprint
 from flask.helpers import flash
 from flask_login import current_user, logout_user, login_required, login_user
+from jinja2.loaders import PrefixLoader
 from sqlalchemy.sql.functions import current_date, user
 from werkzeug.security import check_password_hash
 from sqlalchemy.sql import func
@@ -71,3 +72,12 @@ def condition(condition_id: int):
     else:
         tasks = Task.query.filter_by(owner=current_user.id).order_by(Task.date_expired).all()
     return render_template("condition.html", user=current_user, tasks=tasks)
+
+
+@auth_bp.route("/editaccount", methods=["GET", "POST"])
+@login_required
+def edit_account():
+    if request.method == "POST":
+        pass
+    else:
+        return render_template("editaccount.html", user=current_user)
