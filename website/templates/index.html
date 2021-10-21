@@ -70,7 +70,14 @@
                                 <input type="text" id="title" name="title" placeholder="Task title">
                             </div>
                             <div class="form-element">
-                                <input type="text" id="priority" name="priority" placeholder="Specify priority">
+                                <input name="priority" id="priority" list="browser2" placeholder="Specify priority">
+                                <datalist id="browser2">
+                                    <option value="Important">
+                                    <option value="Crucial">
+                                    <option value="Low priority">
+                                    <option value="Normal priority">
+                                    <option value="ASAP">
+                                </datalist>
                             </div>
                             <div class="form-element">
                                 <input type="text" id="subject" name="subject" placeholder="Subject">
