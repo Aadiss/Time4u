@@ -691,6 +691,41 @@ footer {
   margin-left: 15px;
 }
 
+.edit-user-wrapper .edit-user-container .change-password-popup .changepass-group {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.edit-user-wrapper .edit-user-container .change-password-popup .changepass-group input {
+  border: 2px solid ;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.edit-user-wrapper .edit-user-container .change-password-popup .changepass-group .change-close-btn:hover {
+  color: #b8c6db;
+  cursor: pointer;
+  width: auto;
+}
+
+.edit-user-wrapper .edit-user-container .change-password-popup {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  z-index: 2;
+  background: #a29bfe;
+  opacity: .95;
+  padding: 2rem;
+  border-radius: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
 
 .edit-user-wrapper .edit-user-container {
   background: rgba(54, 53, 53, 0.7);

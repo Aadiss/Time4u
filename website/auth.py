@@ -4,7 +4,7 @@ from flask.helpers import flash
 from flask_login import current_user, logout_user, login_required, login_user
 from jinja2.loaders import PrefixLoader
 from sqlalchemy.sql.functions import current_date, user
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 from sqlalchemy.sql import func
 from .models import User, Task
 from . import db
@@ -78,6 +78,27 @@ def condition(condition_id: int):
 @login_required
 def edit_account():
     if request.method == "POST":
-        pass
+        curr_password = request.form.get("currpassword")
+        password1 = request.form.get("password1")
+        password2 = request.form.get("password2")
+        
+        if curr_password and password2 and password1:
+                if not check_password_hash(current_user.password, curr_password):
+                    flash("Invalid password!", category="error")
+                    return redirect(url_for("auth.edit_account"))
+                elif len(password1) < 6:
+                    flash("Password must be at least 6 signs!", category="error")
+                    return redirect(url_for("auth.edit_account"))
+                elif password1 != password2:
+                    flash("Passwords do not match!", category="error")
+                    return redirect(url_for("auth.edit_account"))
+                else:
+                    current_user.password = generate_password_hash(password1, method="sha256")
+                    db.session.commit()
+                    flash("Password changed!", category="success")
+                    return redirect(url_for("views.home"))
+        else:
+            flash("Fill all fields!", category="error")
+            return redirect(url_for("auth.edit_account"))
     else:
         return render_template("editaccount.html", user=current_user)

@@ -29,3 +29,17 @@ function hideEditTask(task_id) {
     let popup = document.getElementById(div_id);
     popup.style.display = "none";
 }
+
+function showChangePassPopUp() {
+    let popup = document.getElementById("changePassPopup");
+    popup.style.display = "block";
+}
+
+function hideChangePassPopUp() {
+    let popup = document.getElementById("changePassPopup");
+    popup.style.display = "none";
+}
+
+function submit(){
+    document.editAccountForm.submit();
+}
