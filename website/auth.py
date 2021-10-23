@@ -102,3 +102,9 @@ def edit_account():
             return redirect(url_for("auth.edit_account"))
     else:
         return render_template("editaccount.html", user=current_user)
+
+
+@auth_bp.route("/guide")
+@login_required
+def guide():
+    return render_template("guide.html", user=current_user)
