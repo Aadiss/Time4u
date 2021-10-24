@@ -108,3 +108,9 @@ def edit_account():
 @login_required
 def guide():
     return render_template("guide.html", user=current_user)
+
+
+@auth_bp.route("/calendar")
+@login_required
+def calendar():
+    return render_template("calendar.html", user=current_user)

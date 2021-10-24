@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}
+    {% if user.is_authenticated %}
+        Welcome, {{user.login}}!
+    {% else %}
+        Join Us!
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="user-wrapper">
+        <div class="sidebar-container">
+            <header class="sidebar-header">
+                Time4U
+            </header>
+            <ul>
+                <li>
+                    <a href="/">
+                        <i class="fas fa-qrcode"></i>
+                        All tasks
+                    </a>
+                </li>
+                <li>
+                    <a href="/condition/1">
+                        <i class="fas fa-qrcode"></i>
+                        Expired soon
+                    </a>
+                </li>
+                <li>
+                    <a href="/condition/2">
+                        <i class="fas fa-qrcode"></i>
+                        Highest priority
+                    </a>
+                </li>
+                <li>
+                    <a href="/condition/3">
+                        <i class="fas fa-qrcode"></i>
+                        Done
+                    </a>
+                </li>
+                <li>
+                    <a href="/condition/4">
+                        <i class="fas fa-qrcode"></i>
+                        In Development
+                    </a>
+                </li>
+                <li>
+                    <a href="/condition/5">
+                        <i class="fas fa-qrcode"></i>
+                        To Do
+                    </a>
+                </li>
+                <li>
+                    <a href="/calendar">
+                        <i class="fas fa-qrcode"></i>
+                        Calendar
+                    </a>
+                </li>
+            </ul>
+            <header class="sidebar-header" id="edit-header">
+                <a href="/editaccount" style="text-decoration: none; color:white;">Edit Account</a>
+            </header>
+        </div>
+
+        <div class="content-container">
+            <div class="calendar-wrapper">
+                <div class="calendar">
+
+                    <div class="calendar-header">
+                        <span class="month-picker" id="month-picker">
+                            September
+                        </span>
+                        <div class="year-picker">
+                            <span class="year-change" id="prev-year">
+                                <pre><</pre>
+                            </span>
+                            <span id="year">2021</span>
+                            <span class="year-change" id="next-year">
+                                <pre>></pre>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="calendar-body">
+                        <div class="calendar-week-day">
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                            <div>Sun</div>
+                        </div>
+                        <div class="calendar-days">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                            <div>5</div>
+                            <div>6</div>
+                            <div>7</div>
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                            <div>5</div>
+                            <div>6</div>
+                            <div>7</div>
+                        </div>
+                    </div>
+
+                    <div class="month-list">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
